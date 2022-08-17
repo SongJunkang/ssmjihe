@@ -18,12 +18,7 @@
     -->
     <!-- 设置别名。-->
     <typeAliases>
-        <typeAlias type="com.atguigu.mybaits.pojo.User" alias="abc"></typeAlias>
-        <!-- 如不设置别名，当前的类型拥有默认的别名，即是类名，且不分区大小写。-->
-        <typeAlias type="com.atguigu.mybaits.pojo.User"></typeAlias>
-        <!-- 通过包设置类型别名，指定包下所有类型将全部拥有默认的别名，即是类名，且不分区大小写。-->
-        <package name="com.atguigu.mybaits.pojo"/>
-
+        <package name="com.atguigu.mybatis.pojo"/>
     </typeAliases>
 
 
@@ -39,18 +34,6 @@
                 <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
-
-        <environment id="test">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <!--连接数据库的驱动类-->
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <!--连接数据库的地址，ssm为操作的数据库名称 -->
-                <property name="url" value="jdbc:mysql://localhost:3306/ssm?serverTimezone=UTC"/>
-                <property name="username" value="root"/>
-                <property name="password" value="abc123"/>
-            </dataSource>
-        </environment>
     </environments>
 
     <!--引入mybaits 的映射文件 -->
@@ -60,7 +43,7 @@
                 1.mapper接口和映射文件所在的包必须一致。
                 2.mapper接口和映射文件的文字必须一致，
             -->
-        <package name="com.atguigu.mybaits.mapper"/>
+        <package name="com.atguigu.mybatis.mapper"/>
 
 <!--        <mapper resource = "mappers/UserMapper.xml"/>-->
     </mappers>

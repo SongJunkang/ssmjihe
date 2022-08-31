@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1>index.html</h1>
+<a th:href="@{/hello}">测试注解</a><br>
+<a th:href="@{/abc/test/ant}">测试注解路径</a><br>
+<a th:href="@{/test/rest/1}">测试注解路径占位符</a><br>
+<hr>
+
+<form th:action="@{/param/pojo}" method="post">
+    用户名：<input type="text" name = "username" ><br>
+    用户名：<input type="password" name = "password" ><br>
+    <input type="submit" value="登录" ><br>
+
+</form>
+<hr>
+<a th:href="@{/test/mav}">测试通过ModelandView向请求域共享数据</a><br>
+<a th:href="@{/test/model}">测试通过ModelandView向请求域共享数据</a><br>
+
+<hr>
+<a th:href="@{/test/view/thymeleaf}">测试通过thymeleaf视图</a><br>
+<a th:href="@{/test/view/forward}">测试SpringMVCInternalResourceView视图</a><br>
+
+
+<!--<a th:href="@{/param/servletApi}"></a>-->
+
+</body>
+</html>

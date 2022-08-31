@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- mybaits核心配置文件中的标签，需要按照指定的顺序配置。
+    properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,
+    objectWrapperFactory?,reflectorFactory?,plugins?,environments?,
+    databaseIdProvider?,mappers?)"
+    -->
+    <properties resource="jdbc.properties.properties"/>
+    <settings>
+<!--  将下划线映射为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+<!--        开始延迟加载，也就是懒加载。-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+<!--        按需加载，默认值就是false:才是按需加载。-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+
+    </settings>
+
+    <!-- 设置别名。-->
+    <typeAliases>
+        <!-- 通过包设置类型别名，指定包下所有类型将全部拥有默认的别名，即是类名，且不分区大小写。-->
+        <package name="com.atguigu.mybatis.pojo"/>
+
+    </typeAliases>
+
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <!--引入mybaits 的映射文件 -->
+    <mappers>
+        <package name="com.atguigu.mybatis.mapper"/>
+    </mappers>
+</configuration>
